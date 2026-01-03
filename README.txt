@@ -12,5 +12,4 @@ EJECUCIÓN LOCAL:
 - Ejecutar "Open with Live Server"
 
 VERSIÓN ONLINE:
-Se incluye un enlace a la versión desplegada del proyecto,
-donde las animaciones funcionan correctamente sin configuración adicional.
+https://michellevaughan0.github.io/animated-resources/
