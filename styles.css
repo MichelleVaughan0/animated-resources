@@ -1,0 +1,210 @@
+        :root {
+            --bg-page: #fff5f8;
+            --card-bg: #ffffff;
+            --border: #f2c6d4;
+
+            --pink-main: #f7b3c2;
+            --pink-soft: #fde2ea;
+            --green-soft: #dff5e3;
+            --gray-soft: #f1f1f1;
+
+            --line-pending: #f3c7d4;
+
+            --text-main: #3a3a3a;
+            --text-muted: #8a8a8a;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-page);
+            padding: 40px;
+        }
+
+        /* card fondo */
+        .card {
+            position: relative;
+            max-width: 1000px;
+            margin: auto;
+            background: var(--card-bg);
+            border-radius: 28px;
+            border: 1px solid var(--border);
+            box-shadow: 0 12px 40px rgba(247, 179, 194, 0.35);
+            padding: 36px;
+            overflow: hidden;
+            padding-bottom: 80px;
+        }
+
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+
+        .header .left {
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .header .right {
+            text-align: right;
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* seguimiento */
+        .tracker {
+            display: flex;
+            position: relative;
+        }
+
+        .tracker.vertical {
+            flex-direction: column;
+            gap: 42px;
+        }
+
+        .tracker.vertical .step {
+            display: grid;
+            grid-template-columns: 60px 1fr;
+            /* icono fijo + texto */
+            align-items: center;
+            column-gap: 18px;
+            width: 100%;
+        }
+
+        .tracker.vertical .icon {
+            margin: 0;
+        }
+
+        .tracker.vertical .label {
+            text-align: left;
+            max-width: none;
+        }
+
+        .tracker.horizontal {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .tracker::before {
+            content: "";
+            position: absolute;
+            background: var(--line-pending);
+            z-index: 0;
+            border-radius: 10px;
+        }
+
+        .tracker::after {
+            content: "";
+            position: absolute;
+            background: var(--progress-color, var(--green-soft));
+            z-index: 0;
+            border-radius: 10px;
+            transition: all 0.5s ease;
+        }
+
+        .tracker.vertical::before {
+            left: 32px;
+            top: 0;
+            bottom: 0;
+            width: 6px;
+        }
+
+        .tracker.vertical::after {
+            left: 32px;
+            top: 0;
+            width: 6px;
+            height: var(--progress, 0%);
+        }
+
+        .tracker.horizontal::before {
+            top: 32px;
+            left: 0;
+            right: 0;
+            height: 6px;
+        }
+
+        .tracker.horizontal::after {
+            top: 32px;
+            left: 0;
+            height: 6px;
+            width: var(--progress, 0%);
+        }
+
+        /* Estados */
+        .step {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            z-index: 1;
+            min-width: 160px;
+        }
+
+        .tracker.horizontal .step {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        /* Icono */
+        .icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--gray-soft);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.4s ease;
+            margin: 0 auto 10px
+        }
+
+        /* Estados */
+        .step.active .icon {
+            background: var(--pink-soft);
+            box-shadow: 0 0 0 10px rgba(247, 179, 194, 0.25);
+        }
+
+        .step.completed .icon {
+            background: var(--green-soft);
+        }
+
+        /* animaciones */
+        .icon svg {
+            width: 36px;
+            height: 36px;
+        }
+
+        /* etiquetas */
+        .label {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-main);
+            max-width: 120px;
+        }
+
+        /* error */
+        #error404 {
+            text-align: center;
+            margin-top: 20px;
+            width: 100%;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .error-animation {
+            width: 220px;
+            height: 220px;
+            margin: 0 auto 20px;
+        }
+
+        #error404 h2,
+        #error404 p {
+            white-space: nowrap;
+        }
